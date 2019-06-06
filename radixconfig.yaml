@@ -30,7 +30,7 @@ spec:
             limits:
               memory: "50Mi"
               cpu: "20m"
-          replicas: 2
+          replicas: 3
      # secrets:
       # - MY_SUPER_SECRET
     - name: www
