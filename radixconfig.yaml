@@ -10,6 +10,9 @@ spec:
     - name: development
       build:
         from: development
+    - name: qa
+      build:
+        from: development
   components:
     - name: echo
       src: ./echo
