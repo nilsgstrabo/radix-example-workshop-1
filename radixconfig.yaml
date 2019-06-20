@@ -13,6 +13,9 @@ spec:
     - name: qa
       build:
         from: development
+    - name: test
+      build:
+        from: test
   components:
     - name: echo
       src: ./echo
