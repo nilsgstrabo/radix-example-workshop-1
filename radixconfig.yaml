@@ -31,6 +31,19 @@ spec:
               memory: "50Mi"
               cpu: "20m"
           replicas: 2
+        - environment: development
+          variables:
+            PORT: 3000
+            NODE_ENV: "production"
+          monitoring: true
+          resources:
+            requests:
+              memory: "42Mi"
+              cpu: "10m"
+            limits:
+              memory: "50Mi"
+              cpu: "20m"
+          replicas: 2
      # secrets:
       # - MY_SUPER_SECRET
     - name: www
@@ -41,6 +54,20 @@ spec:
       public: true
       environmentConfig:
         - environment: production
+          variables:
+            PORT: 3001
+            NODE_ENV: "production"
+            ECHO_URL: "http://echo:3000"
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
+        - environment: development
           variables:
             PORT: 3001
             NODE_ENV: "production"
