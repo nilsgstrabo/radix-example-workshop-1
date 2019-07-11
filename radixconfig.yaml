@@ -82,5 +82,5 @@ spec:
               cpu: "20m"
           replicas: 1
   dnsAppAlias:
-    environment: production
+    environment: development
     component: www
