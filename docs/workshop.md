@@ -67,7 +67,7 @@ Important to know:
 
 1. The difference between ```platform user``` and ```application user```
 2. Important terminology: ```application```, ```environments```,```components```, and ```replicas``` [Important Radix Concepts](https://www.radix.equinor.com/docs/topic-concepts/)
-3. ```raidxconfig.yaml``` - lives on the master branch and is your infrastrucure as code - drive your app in Radix.
+3. ```radixconfig.yaml``` - lives on the master branch and is your infrastrucure as code - drive your app in Radix.
 
 ### 1.1.6. Explore radixconfig.yaml
 
