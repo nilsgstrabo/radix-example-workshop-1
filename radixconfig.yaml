@@ -25,10 +25,10 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "42Mi"
+              memory: "52Mi"
               cpu: "10m"
             limits:
-              memory: "50Mi"
+              memory: "53Mi"
               cpu: "20m"
           replicas: 2
         - environment: development
@@ -38,10 +38,10 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "41Mi"
+              memory: "54Mi"
               cpu: "10m"
             limits:
-              memory: "49Mi"
+              memory: "55Mi"
               cpu: "20m"
           replicas: 1
       secrets:
@@ -61,10 +61,10 @@ spec:
           monitoring: false
           resources:
             requests:
-              memory: "50Mi"
+              memory: "56Mi"
               cpu: "10m"
             limits:
-              memory: "54Mi"
+              memory: "57Mi"
               cpu: "20m"
           replicas: 1
         - environment: development
@@ -75,10 +75,10 @@ spec:
           monitoring: false
           resources:
             requests:
-              memory: "50Mi"
+              memory: "58Mi"
               cpu: "10m"
             limits:
-              memory: "54Mi"
+              memory: "59Mi"
               cpu: "20m"
           replicas: 1
   dnsAppAlias:
