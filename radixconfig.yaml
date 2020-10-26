@@ -30,7 +30,7 @@ spec:
             limits:
               memory: "53Mi"
               cpu: "20m"
-          replicas: 2
+          replicas: 1
         - environment: development
           variables:
             PORT: 3000
