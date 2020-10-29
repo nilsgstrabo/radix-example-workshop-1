@@ -25,10 +25,10 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "52Mi"
+              memory: "50Mi"
               cpu: "10m"
             limits:
-              memory: "53Mi"
+              memory: "51Mi"
               cpu: "20m"
           replicas: 1
         - environment: development
