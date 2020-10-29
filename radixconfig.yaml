@@ -5,8 +5,6 @@ metadata:
 spec:
   environments:
     - name: production
-      build:
-        from: main
     - name: development
       build:
         from: feature
