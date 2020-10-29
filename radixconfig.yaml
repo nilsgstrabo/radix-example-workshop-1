@@ -25,7 +25,7 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "49Mi"
+              memory: "48Mi"
               cpu: "10m"
             limits:
               memory: "51Mi"
