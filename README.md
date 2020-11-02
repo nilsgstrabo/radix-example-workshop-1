@@ -12,4 +12,4 @@ Purpose - a simple two module app. The public front-end (www) will respond to re
 
 ![Conseptual diagram](./docs/smalldiagram.png) 
 
-### Jeg vil ha med denne
+### Jeg vil ha med denne1
