@@ -42,8 +42,6 @@ spec:
               memory: "55Mi"
               cpu: "20m"
           replicas: 1
-      secrets:
-      - MY_SUPER_SECRET
     - name: www
       src: ./www
       ports:
