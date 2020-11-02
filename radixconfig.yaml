@@ -7,7 +7,7 @@ spec:
     - name: production
     - name: development
       build:
-        from: master
+        from: main
   components:
     - name: echo
       src: ./echo
