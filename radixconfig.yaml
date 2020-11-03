@@ -5,9 +5,11 @@ metadata:
 spec:
   environments:
     - name: production
-    - name: development
       build:
         from: main
+    - name: development
+      build:
+        from: development
   components:
     - name: echo
       src: ./echo
@@ -23,12 +25,12 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "48Mi"
+              memory: "42Mi"
               cpu: "10m"
             limits:
-              memory: "52Mi"
+              memory: "50Mi"
               cpu: "20m"
-          replicas: 1
+          replicas: 2
         - environment: development
           variables:
             PORT: 3000
@@ -36,12 +38,14 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "54Mi"
+              memory: "42Mi"
               cpu: "10m"
             limits:
-              memory: "55Mi"
+              memory: "50Mi"
               cpu: "20m"
-          replicas: 1
+          replicas: 2
+     # secrets:
+      # - MY_SUPER_SECRET
     - name: www
       src: ./www
       ports:
@@ -57,10 +61,10 @@ spec:
           monitoring: false
           resources:
             requests:
-              memory: "56Mi"
+              memory: "50Mi"
               cpu: "10m"
             limits:
-              memory: "57Mi"
+              memory: "54Mi"
               cpu: "20m"
           replicas: 1
         - environment: development
@@ -71,10 +75,10 @@ spec:
           monitoring: false
           resources:
             requests:
-              memory: "58Mi"
+              memory: "50Mi"
               cpu: "10m"
             limits:
-              memory: "59Mi"
+              memory: "54Mi"
               cpu: "20m"
           replicas: 1
   dnsAppAlias:
