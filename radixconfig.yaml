@@ -46,7 +46,7 @@ spec:
           replicas: 2
      # secrets:
       # - MY_SUPER_SECRET
-    - name: www2
+    - name: www
       src: ./www
       ports:
        - name: http
@@ -83,4 +83,4 @@ spec:
           replicas: 1
   dnsAppAlias:
     environment: development
-    component: www2
+    component: www
