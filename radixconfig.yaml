@@ -12,7 +12,7 @@ spec:
       src: ./echo
       ports:
       - name: http
-        port: 3000
+        port: 3003
       public: false
       environmentConfig:
         - environment: production
