@@ -12,7 +12,7 @@ spec:
       src: ./echo
       ports:
       - name: http
-        port: 3000
+        port: 3003
       public: false
       environmentConfig:
         - environment: production
@@ -39,6 +39,7 @@ spec:
       secrets:
         - DB_PASSWORD
         - DB_SERVER
+        - ANOTHER_SECRET
       environmentConfig:
         - environment: production
           variables:
