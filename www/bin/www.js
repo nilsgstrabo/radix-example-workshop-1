@@ -29,7 +29,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 setTimeout(() => {
-    console.log('stopping... to fake a crash')
+    console.log('stopping... to fake a crash');
     server.close();
 }, 60000);
 /**
