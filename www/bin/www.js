@@ -23,15 +23,20 @@ var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
+ * Wait for 20 seconds to start listening to force a k8s readiness probe failed event
  */
+setTimeout(() => {
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);   
+}, 20000);
+ 
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+
 setTimeout(() => {
     console.log('stopping... to fake a crash');
     server.close();
-}, 60000);
+}, 300000);
 /**
  * Normalize a port into a number, string, or false.
  */
