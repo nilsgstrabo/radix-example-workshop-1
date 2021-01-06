@@ -28,7 +28,10 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
+setTimeout(() => {
+    console.log('stopping... to fake a crash')
+    server.close();
+}, 60000);
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -87,5 +90,4 @@ function onListening() {
         ? 'pipe ' + addr
         : 'port ' + addr.port;
     debug('Listening on ' + bind);
-    console.log('Heisan CIT MC');
 }
