@@ -30,7 +30,6 @@ spec:
           replicas: 1
       secrets:
        - ECHO_SECRET
-       - ECHO_SECRET2
     - name: www2
       src: ./www
       ports:
