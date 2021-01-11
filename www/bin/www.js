@@ -31,11 +31,11 @@ setTimeout(() => {
     server.on('listening', onListening);   
 }, 20000);
  
-setTimeout(() => {
-    throw new Error('force crash');
-    // console.log('stopping... to fake a crash');
-    // server.close();
-}, 60000);
+// setTimeout(() => {
+//     throw new Error('force crash');
+//     // console.log('stopping... to fake a crash');
+//     // server.close();
+// }, 600000);
 /**
  * Normalize a port into a number, string, or false.
  */
