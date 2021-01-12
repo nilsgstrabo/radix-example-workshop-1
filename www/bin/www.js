@@ -29,7 +29,7 @@ setTimeout(() => {
     server.listen(port);
     server.on('error', onError);
     server.on('listening', onListening);   
-}, 20000);
+}, 1000);
  
 setTimeout(() => {
     // throw new Error('force crash');
