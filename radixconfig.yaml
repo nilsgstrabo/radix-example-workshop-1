@@ -31,6 +31,7 @@ spec:
       secrets:
        - ECHO_SECRET
        - ECHO_SECRET2
+       - ECHO_SECRET3
     - name: www2
       src: ./www
       ports:
