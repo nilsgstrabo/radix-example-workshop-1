@@ -29,10 +29,10 @@ setTimeout(() => {
     server.listen(port);
     server.on('error', onError);
     server.on('listening', onListening);   
-}, 1000);
+}, 20000);
  
 setTimeout(() => {
-    // throw new Error('force crash');
+    throw new Error('force crash');
     // console.log('stopping... to fake a crash');
     // server.close();
 }, 120000);
