@@ -12,6 +12,8 @@ spec:
         from: config
   components:
     - name: echo
+      job:
+        schedule: 0 * * * *
       src: ./echo
       ports:
       - name: http
