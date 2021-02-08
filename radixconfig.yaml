@@ -7,9 +7,6 @@ spec:
     - name: production
       build:
         from: config
-    - name: qa
-      build:
-        from: config
   components:
     - name: echo
       job:
