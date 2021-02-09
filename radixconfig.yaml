@@ -4,97 +4,59 @@ metadata:
   name: echo-nils
 spec:
   environments:
-  - name: production
-    build:
-      from: main
-  - name: development
-    build:
-      from: development
-  cronjobs:
-  - name: etl
-    src: ./etl
-    schedule: * 0 0 0 0
-    ports:
-    - name: http
-      port: 3000
-    environmentConfig:
-    - environment: production
-      schedule: * */2 0 0 0
-      ...
-    secrets:
-    - SECRET1
-    - SECRET2
+    - name: production
+      build:
+        from: config
+    - name: qa
+      build:
+        from: config
   components:
-  - name: echo
-    src: ./echo
-    ports:
-    - name: http
-      port: 3000
-    public: false
-    environmentConfig:
-    - environment: production
-      variables:
-        PORT: 3000
-        NODE_ENV: "production"
-      monitoring: true
-      resources:
-        requests:
-          memory: "42Mi"
-          cpu: "10m"
-        limits:
-          memory: "50Mi"
-          cpu: "20m"
-      replicas: 2
-    - environment: development
-      variables:
-        PORT: 3000
-        NODE_ENV: "production"
-      monitoring: true
-      resources:
-        requests:
-          memory: "42Mi"
-          cpu: "10m"
-        limits:
-          memory: "50Mi"
-          cpu: "20m"
-      replicas: 2
-    # secrets:
-    # - MY_SUPER_SECRET
-  - name: www
-    src: ./www
-    ports:
+    - name: echo
+      src: ./echo
+      ports:
       - name: http
         port: 3001
-    public: true
-    environmentConfig:
-      - environment: production
-        variables:
-          PORT: 3001
-          NODE_ENV: "production"
-          ECHO_URL: "http://echo:3000"
-        monitoring: false
-        resources:
-          requests:
-            memory: "50Mi"
-            cpu: "10m"
-          limits:
-            memory: "54Mi"
-            cpu: "20m"
-        replicas: 1
-      - environment: development
-        variables:
-          PORT: 3001
-          NODE_ENV: "production"
-          ECHO_URL: "http://echo:3000"
-        monitoring: false
-        resources:
-          requests:
-            memory: "50Mi"
-            cpu: "10m"
-          limits:
-            memory: "54Mi"
-            cpu: "20m"
-        replicas: 1
-  dnsAppAlias:
-    environment: development
-    component: www
+      public: false
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3001
+            NODE_ENV: "production"
+          monitoring: true
+          resources:
+            requests:
+              memory: "42Mi"
+              cpu: "10m"
+            limits:
+              memory: "50Mi"
+              cpu: "20m"
+          replicas: 1
+      secrets:
+       - ECHO_SECRET
+       - ECHO_SECRET2
+       - ECHO_SECRET3
+    - name: www2
+      src: ./www
+      ports:
+       - name: http
+         port: 3001
+      public: true
+      secrets:
+        - DB_PASSWORD
+        - DB_SERVER
+        - ANOTHER_SECRET
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3001
+            NODE_ENV: "production"
+            ECHO_URL: "http://echo:3000"
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
