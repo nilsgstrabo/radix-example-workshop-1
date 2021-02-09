@@ -13,7 +13,7 @@ spec:
   cronjobs:
     - name: etl
       src: ./etl
-      schedule: * 0 0 0 0
+      # schedule: * 0 0 0 0
       # ports:
       #   - name: http
       #     port: 3000
