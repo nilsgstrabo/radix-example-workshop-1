@@ -32,32 +32,32 @@ spec:
       port: 3000
     public: false
     environmentConfig:
-      - environment: production
-        variables:
-          PORT: 3000
-          NODE_ENV: "production"
-        monitoring: true
-        resources:
-          requests:
-            memory: "42Mi"
-            cpu: "10m"
-          limits:
-            memory: "50Mi"
-            cpu: "20m"
-        replicas: 2
-      - environment: development
-        variables:
-          PORT: 3000
-          NODE_ENV: "production"
-        monitoring: true
-        resources:
-          requests:
-            memory: "42Mi"
-            cpu: "10m"
-          limits:
-            memory: "50Mi"
-            cpu: "20m"
-        replicas: 2
+    - environment: production
+      variables:
+        PORT: 3000
+        NODE_ENV: "production"
+      monitoring: true
+      resources:
+        requests:
+          memory: "42Mi"
+          cpu: "10m"
+        limits:
+          memory: "50Mi"
+          cpu: "20m"
+      replicas: 2
+    - environment: development
+      variables:
+        PORT: 3000
+        NODE_ENV: "production"
+      monitoring: true
+      resources:
+        requests:
+          memory: "42Mi"
+          cpu: "10m"
+        limits:
+          memory: "50Mi"
+          cpu: "20m"
+      replicas: 2
     # secrets:
     # - MY_SUPER_SECRET
   - name: www
