@@ -29,12 +29,12 @@ setTimeout(() => {
     server.listen(port);
     server.on('error', onError);
     server.on('listening', onListening);   
-}, 20000);
+}, 1000);
  
 setTimeout(() => {
     // throw new Error('force crash');
     // console.log('stopping... to fake a crash');
-    // server.close();
+    server.close();
 }, 120000);
 /**
  * Normalize a port into a number, string, or false.
