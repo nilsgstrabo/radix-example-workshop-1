@@ -13,6 +13,16 @@ spec:
   cronjobs:
     - name: etl
       src: ./etl
+      schedule: * 0 0 0 0
+      ports:
+        - name: http
+          port: 3000
+      environmentConfig:
+        - environment: production
+          schedule: * */2 0 0 0
+      secrets:
+        - SECRET1
+        - SECRET2
   components:
     - name: echo
       src: ./echo
