@@ -10,9 +10,18 @@ spec:
     - name: qa
       build:
         from: config
-  cronjobs:
-    - name: etl
-      src: ./etl
+  jobs:
+    - name: www
+      src: ./www
+      ports:
+       - name: http
+         port: 3001
+      schedulerPort: 8888
+      payload:
+        path: /payload/body.json
+  # cronjobs:
+  #   - name: etl
+  #     src: ./etl
       # schedule: * 0 0 0 0
       # ports:
       #   - name: http
