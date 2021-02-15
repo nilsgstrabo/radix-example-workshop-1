@@ -34,7 +34,7 @@ setTimeout(() => {
 setTimeout(() => {
     // throw new Error('force crash');
     // console.log('stopping... to fake a crash');
-    server.close();
+    //server.close();
 }, 120000);
 /**
  * Normalize a port into a number, string, or false.
