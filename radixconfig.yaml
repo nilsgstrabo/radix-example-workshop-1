@@ -11,8 +11,8 @@ spec:
       build:
         from: config
   jobs:
-    - name: www
-      src: ./www
+    - name: compute
+      src: ./compute
       ports:
        - name: http
          port: 3001
