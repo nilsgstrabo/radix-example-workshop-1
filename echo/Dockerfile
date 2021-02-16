@@ -36,4 +36,5 @@ WORKDIR /usr/src/app
 COPY --from=dependencies /usr/src/app/node_modules_production ./node_modules
 EXPOSE 3000
 ENV NODE_ENV=production
+
 ENTRYPOINT [ "npm", "start"]

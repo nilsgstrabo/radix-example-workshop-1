@@ -15,7 +15,20 @@ ENV GO111MODULE=on \
 
 RUN go build -o main .
 
-FROM scratch
+FROM busybox
 
-COPY --from=builder /src/compute/main /usr/local/bin/main
-ENTRYPOINT ["/usr/local/bin/main"]
+WORKDIR /compute/
+
+ARG UID=1000
+ARG GID=1000
+
+#RUN addgroup -S -g $GID compute
+#RUN adduser -S -u $UID -s /bin/sh -G compute compute
+
+COPY --from=builder /src/compute/main .
+
+#USER compute
+
+RUN touch /tmp/mydata.txt
+
+ENTRYPOINT ["/compute/main"]
