@@ -7,9 +7,6 @@ spec:
     - name: production
       build:
         from: config
-    - name: qa
-      build:
-        from: config
   jobs:
     - name: compute
       src: ./compute
@@ -19,6 +16,18 @@ spec:
       schedulerPort: 8888
       payload:
         path: /payload/body.json
+      variables:
+        COMPUTE_SOURCE: somewhere
+    - name: compute2
+      src: ./compute
+      ports:
+       - name: http
+         port: 3001
+      schedulerPort: 8888
+      payload:
+        path: /payload/body.json
+      variables:
+        COMPUTE_SOURCE: somewhere_else
   # cronjobs:
   #   - name: etl
   #     src: ./etl
@@ -87,30 +96,6 @@ spec:
        - name: http
          port: 3001
       public: true
-      secrets:
-        - DB_PASSWORD
-        - DB_SERVER
-        - ANOTHER_SECRET
-      environmentConfig:
-        - environment: production
-          variables:
-            PORT: 3001
-            NODE_ENV: "production"
-            ECHO_URL: "http://echo:3000"
-          monitoring: false
-          resources:
-            requests:
-              memory: "50Mi"
-              cpu: "10m"
-            limits:
-              memory: "54Mi"
-              cpu: "20m"
-          replicas: 1
-    - name: www2
-      src: ./www
-      ports:
-       - name: http
-         port: 3001
       secrets:
         - DB_PASSWORD
         - DB_SERVER
