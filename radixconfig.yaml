@@ -18,16 +18,16 @@ spec:
         path: /payload/body.json
       variables:
         COMPUTE_SOURCE: somewhere
-    - name: compute2
-      src: ./compute
-      ports:
-       - name: http
-         port: 3001
-      schedulerPort: 8888
-      payload:
-        path: /payload/body.json
-      variables:
-        COMPUTE_SOURCE: somewhere_else
+    # - name: compute2
+    #   src: ./compute
+    #   ports:
+    #    - name: http
+    #      port: 3001
+    #   schedulerPort: 8888
+    #   payload:
+    #     path: /payload/body.json
+    #   variables:
+    #     COMPUTE_SOURCE: somewhere_else
   # cronjobs:
   #   - name: etl
   #     src: ./etl
