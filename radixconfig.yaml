@@ -78,13 +78,13 @@ spec:
             PORT: 3001
             NODE_ENV: "production"
           monitoring: true
-          resources:
-            requests:
-              memory: "42Mi"
-              cpu: "10m"
-            limits:
-              memory: "50Mi"
-              cpu: "20m"
+          # resources:
+          #   requests:
+          #     memory: "42Mi"
+          #     cpu: "10m"
+          #   limits:
+          #     memory: "50Mi"
+          #     cpu: "20m"
           replicas: 1
       secrets:
        - ECHO_SECRET
