@@ -18,6 +18,19 @@ spec:
         path: /payload/body.json
       variables:
         COMPUTE_SOURCE: somewhere
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3002
+            NODE_ENV: "production"
+          monitoring: true
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "50m"
+            limits:
+              memory: "50Mi"
+              cpu: "20m"      
     # - name: compute2
     #   src: ./compute
     #   ports:
@@ -42,26 +55,26 @@ spec:
       #   - SECRET1
       #   - SECRET2
   components:
-    # - name: echo
-    #   src: ./echo
-    #   ports:
-    #   - name: http
-    #     port: 3001
-    #   public: false
-    #   environmentConfig:
-    #     - environment: production
-    #       variables:
-    #         PORT: 3001
-    #         NODE_ENV: "production"
-    #       monitoring: true
-    #       # resources:
-    #       #   requests:
-    #       #     memory: "42Mi"
-    #       #     cpu: "10m"
-    #       #   limits:
-    #       #     memory: "50Mi"
-    #       #     cpu: "20m"
-    #       replicas: 1
+    - name: echo
+      src: ./echo
+      ports:
+      - name: http
+        port: 3001
+      public: false
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3001
+            NODE_ENV: "production"
+          monitoring: true
+          # resources:
+          #   requests:
+          #     memory: "42Mi"
+          #     cpu: "10m"
+          #   limits:
+          #     memory: "50Mi"
+          #     cpu: "20m"
+          replicas: 1
     # - name: echo2
     #   src: ./echo
     #   ports:
