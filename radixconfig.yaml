@@ -10,6 +10,7 @@ spec:
   jobs:
     - name: compute
       src: ./compute
+      dockerfileName: Dockerfile
       ports:
        - name: http
          port: 3001
@@ -21,7 +22,7 @@ spec:
       environmentConfig:
         - environment: production
           variables:
-            PORT: 3002
+            PORT: 3001
             NODE_ENV: "production"
           monitoring: true
           resources:
