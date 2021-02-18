@@ -75,6 +75,26 @@ spec:
           #     memory: "50Mi"
           #     cpu: "20m"
           replicas: 1
+    - name: echo
+      src: ./echo
+      ports:
+      - name: http
+        port: 3001
+      public: false
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3001
+            NODE_ENV: "production"
+          monitoring: true
+          # resources:
+          #   requests:
+          #     memory: "42Mi"
+          #     cpu: "10m"
+          #   limits:
+          #     memory: "50Mi"
+          #     cpu: "20m"
+          replicas: 1          
     # - name: echo2
     #   src: ./echo
     #   ports:
