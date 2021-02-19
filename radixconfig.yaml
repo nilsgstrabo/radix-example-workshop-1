@@ -78,16 +78,19 @@ spec:
             PORT: 3001
             NODE_ENV: "dev"
           monitoring: false
-          # resources:
-          #   requests:
-          #     memory: "42Mi"
-          #     cpu: "10m"
-          #   limits:
-          #     memory: "50Mi"
-          #     cpu: "20m"
+          volumeMounts:
+            - type: blob
+              name: blobvol
+              container: devcontainer
+              path: /devdir
           replicas: 1
         - environment: production
           monitoring: true
+          volumeMounts:
+            - type: blob
+              name: blobvol
+              container: prodcontainer
+              path: /proddir
     # - name: echo2
     #   src: ./echo
     #   ports:
