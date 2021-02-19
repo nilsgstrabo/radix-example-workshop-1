@@ -33,6 +33,11 @@ spec:
             limits:
               memory: "60Mi"
               cpu: "30m"
+          volumeMounts:
+            - type: blob
+              name: computedata
+              container: dev_compute_container
+              path: /dev_compute
         - environment: production
           variables:
             PORT: 3002
@@ -45,7 +50,12 @@ spec:
               cpu: "120m"
             limits:
               memory: "160Mi"
-              cpu: "130m"  
+              cpu: "130m"
+            volumeMounts:
+            - type: blob
+              name: computedata
+              container: prod_compute_container
+              path: /prod_compute
     - name: compute2
       src: ./compute
       ports:
