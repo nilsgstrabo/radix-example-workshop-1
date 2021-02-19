@@ -52,10 +52,10 @@ spec:
               memory: "160Mi"
               cpu: "130m"
           volumeMounts:
-          - type: blob
-            name: computedata
-            container: prod_compute_container
-            path: /prod_compute
+            - type: blob
+              name: computedata
+              container: prod_compute_container
+              path: /prod_compute
     - name: compute2
       src: ./compute
       ports:
