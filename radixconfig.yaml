@@ -94,6 +94,13 @@ spec:
               container: devcontainer
               path: /devdir
           replicas: 1
+          resources:
+            requests:
+              memory: "55Mi"
+              cpu: "22m"
+            limits:
+              memory: "66Mi"
+              cpu: "33m"
         - environment: production
           monitoring: true
           volumeMounts:
@@ -101,6 +108,13 @@ spec:
               name: blobvol
               container: prodcontainer
               path: /proddir
+          resources:
+            requests:
+              memory: "155Mi"
+              cpu: "122m"
+            limits:
+              memory: "166Mi"
+              cpu: "133m"
     # - name: echo2
     #   src: ./echo
     #   ports:
