@@ -98,10 +98,6 @@ spec:
        - name: http
          port: 3001
       publicPort: http
-      secrets:
-        - DB_PASSWORD
-        - DB_SERVER
-        - ANOTHER_SECRET
       environmentConfig:
         - environment: dev
           variables:
