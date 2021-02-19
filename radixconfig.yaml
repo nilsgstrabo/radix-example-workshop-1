@@ -84,8 +84,10 @@ spec:
         port: 3001
       secrets:
         - SECRET1
+        - SECRET2
       variables:
         VAR1: var1
+        VAR2: var2
       environmentConfig:
         - environment: dev
           variables:
