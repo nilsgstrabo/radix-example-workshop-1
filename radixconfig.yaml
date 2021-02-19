@@ -77,7 +77,7 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "dev"
-          monitoring: true
+          monitoring: false
           # resources:
           #   requests:
           #     memory: "42Mi"
@@ -86,6 +86,8 @@ spec:
           #     memory: "50Mi"
           #     cpu: "20m"
           replicas: 1
+        - environment: production
+          monitoring: true
     # - name: echo2
     #   src: ./echo
     #   ports:
