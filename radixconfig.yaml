@@ -7,6 +7,7 @@ spec:
     - name: dev
       build:
         from: config
+    - name: production
   jobs:
     - name: compute
       src: ./compute
@@ -27,11 +28,24 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "100Mi"
-              cpu: "50m"
-            limits:
               memory: "50Mi"
-              cpu: "20m"      
+              cpu: "20m"
+            limits:
+              memory: "60Mi"
+              cpu: "30m"
+        - environment: production
+          variables:
+            PORT: 3002
+            NODE_ENV: "production"
+            PROD_VAR: "only_in_prod"
+          monitoring: false
+          resources:
+            requests:
+              memory: "150Mi"
+              cpu: "120m"
+            limits:
+              memory: "160Mi"
+              cpu: "130m"  
     - name: compute2
       src: ./compute
       ports:
