@@ -4,7 +4,7 @@ metadata:
   name: echo-nils
 spec:
   environments:
-    - name: production
+    - name: dev
       build:
         from: config
   jobs:
@@ -20,10 +20,10 @@ spec:
       variables:
         COMPUTE_SOURCE: somewhere
       environmentConfig:
-        - environment: production
+        - environment: dev
           variables:
             PORT: 3001
-            NODE_ENV: "production"
+            NODE_ENV: "dev"
           monitoring: true
           resources:
             requests:
@@ -47,7 +47,7 @@ spec:
       #   - name: http
       #     port: 3000
       # environmentConfig:
-      #   - environment: production
+      #   - environment: dev
       #     schedule: * */2 0 0 0
       # secrets:
       #   - SECRET1
@@ -59,10 +59,10 @@ spec:
       - name: http
         port: 3001
       environmentConfig:
-        - environment: production
+        - environment: dev
           variables:
             PORT: 3001
-            NODE_ENV: "production"
+            NODE_ENV: "dev"
           monitoring: true
           # resources:
           #   requests:
@@ -79,10 +79,10 @@ spec:
     #     port: 3001
     #   public: false
     #   environmentConfig:
-    #     - environment: production
+    #     - environment: dev
     #       variables:
     #         PORT: 3001
-    #         NODE_ENV: "production"
+    #         NODE_ENV: "dev"
     #       monitoring: true
     #       # resources:
     #       #   requests:
@@ -103,10 +103,10 @@ spec:
         - DB_SERVER
         - ANOTHER_SECRET
       environmentConfig:
-        - environment: production
+        - environment: dev
           variables:
             PORT: 3001
-            NODE_ENV: "production"
+            NODE_ENV: "dev"
             ECHO_URL: "http://echo:3000"
           monitoring: false
           resources:
