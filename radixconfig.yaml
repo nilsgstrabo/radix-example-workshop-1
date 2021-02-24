@@ -17,8 +17,7 @@ spec:
          port: 3001
       schedulerPort: 8889
       payload:
-        #path: /path/to/payload2
-        path:
+        path: /path/to/payload2
       variables:
         COMPUTE_SOURCE: somewhere
       environmentConfig:
