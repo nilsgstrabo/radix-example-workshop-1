@@ -94,7 +94,7 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "dev"
-          monitoring: false
+          monitoring: true
           volumeMounts:
             - type: blob
               name: blobvol
