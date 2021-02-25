@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testdeploy
+  namespace: echo-nils-dev
+  labels:
+    app: testdeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testdeploy
+  template:
+    metadata:
+      labels:
+        app: testdeploy
+    spec:
+      containers:
+      - name: testdeploy
+        image: nilsgustavstrabo/compute:latest
+        ports:
+        - containerPort: 8080
