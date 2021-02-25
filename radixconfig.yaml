@@ -28,16 +28,16 @@ spec:
           monitoring: true
           resources:
             requests:
-              memory: "50Mi"
+              memory: "200Mi"
               cpu: "20m"
             limits:
-              memory: "60Mi"
-              cpu: "30m"
-          volumeMounts:
-            - type: blob
-              name: computedata
-              container: dev_compute_container
-              path: /dev_compute
+              memory: "750Mi"
+              cpu: "50m"
+          # volumeMounts:
+          #   - type: blob
+          #     name: computedata
+          #     container: dev_compute_container
+          #     path: /dev_compute
         - environment: production
           variables:
             PORT: 3002
@@ -46,24 +46,24 @@ spec:
           monitoring: false
           resources:
             requests:
-              memory: "150Mi"
-              cpu: "120m"
+              memory: "200Mi"
+              cpu: "20m"
             limits:
-              memory: "160Mi"
-              cpu: "130m"
-          volumeMounts:
-            - type: blob
-              name: computedata
-              container: prod_compute_container
-              path: /prod_compute
-    - name: compute2
-      src: ./compute
-      schedulerPort: 8889
-      ports:
-       - name: http
-         port: 3001
-      variables:
-        COMPUTE_SOURCE: somewhere_else
+              memory: "750Mi"
+              cpu: "50m"
+          # volumeMounts:
+          #   - type: blob
+          #     name: computedata
+          #     container: prod_compute_container
+          #     path: /prod_compute
+    # - name: compute2
+    #   src: ./compute
+    #   schedulerPort: 8889
+    #   ports:
+    #    - name: http
+    #      port: 3001
+    #   variables:
+    #     COMPUTE_SOURCE: somewhere_else
   # cronjobs:
   #   - name: etl
   #     src: ./etl
