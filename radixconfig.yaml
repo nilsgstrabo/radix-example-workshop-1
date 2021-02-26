@@ -165,3 +165,5 @@ spec:
               memory: "54Mi"
               cpu: "20m"
           replicas: 1
+        - environment: production
+          monitoring: true
