@@ -111,7 +111,7 @@ spec:
         - environment: production
           monitoring: true
           variables:
-            PORT: 3002
+            PORT: 3001
           # volumeMounts:
           #   - type: blob
           #     name: blobvol
