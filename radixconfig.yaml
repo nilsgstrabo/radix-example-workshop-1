@@ -95,11 +95,11 @@ spec:
             PORT: 3001
             NODE_ENV: "dev"
           monitoring: false
-          volumeMounts:
-            - type: blob
-              name: blobvol
-              container: devcontainer
-              path: /devdir
+          # volumeMounts:
+          #   - type: blob
+          #     name: blobvol
+          #     container: devcontainer
+          #     path: /devdir
           replicas: 1
           resources:
             requests:
@@ -112,11 +112,11 @@ spec:
           monitoring: true
           variables:
             PORT: 3002
-          volumeMounts:
-            - type: blob
-              name: blobvol
-              container: prodcontainer
-              path: /proddir
+          # volumeMounts:
+          #   - type: blob
+          #     name: blobvol
+          #     container: prodcontainer
+          #     path: /proddir
           resources:
             requests:
               memory: "155Mi"
