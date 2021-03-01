@@ -25,11 +25,11 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  * Wait for 20 seconds to start listening to force a k8s readiness probe failed event
  */
-setTimeout(() => {
-    server.listen(port);
-    server.on('error', onError);
-    server.on('listening', onListening);   
-}, 1000);
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);   
+
  
 setTimeout(() => {
     // throw new Error('force crash');
