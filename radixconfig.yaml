@@ -131,26 +131,6 @@ spec:
             limits:
               memory: "166Mi"
               cpu: "133m"
-    # - name: echo2
-    #   src: ./echo
-    #   ports:
-    #   - name: http
-    #     port: 3001
-    #   public: false
-    #   environmentConfig:
-    #     - environment: dev
-    #       variables:
-    #         PORT: 3001
-    #         NODE_ENV: "dev"
-    #       monitoring: true
-    #       # resources:
-    #       #   requests:
-    #       #     memory: "42Mi"
-    #       #     cpu: "10m"
-    #       #   limits:
-    #       #     memory: "50Mi"
-    #       #     cpu: "20m"
-    #       replicas: 1
     - name: www
       src: ./www
       ports:
@@ -162,7 +142,7 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "dev"
-            ECHO_URL: "http://echo:3000"
+            ECHO_URL: "http://echo:3001"
           monitoring: true
           resources:
             requests:
@@ -174,3 +154,6 @@ spec:
           replicas: 1
         - environment: production
           monitoring: false
+          variables:
+            PORT: 3001
+            ECHO_URL: "http://echo:3001"
