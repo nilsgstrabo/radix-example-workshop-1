@@ -3,6 +3,13 @@ kind: RadixApplication
 metadata:
   name: echo-nils
 spec:
+  privateImageHubs:
+    privaterepodeleteme.azurecr.io:
+      username: 23452345-3d71-44a7-8476-50e8b281abbc
+      email: radix@statoilsrm.onmicrosoft.com
+    privaterepodeleteme2.azurecr.io:
+      username: 23423424-3d71-44a7-8476-50e8b281abb2
+      email: radix@statoilsrm.onmicrosoft.com
   environments:
     - name: dev
       build:
