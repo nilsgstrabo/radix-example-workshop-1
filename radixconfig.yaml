@@ -163,7 +163,7 @@ spec:
             PORT: 3001
             NODE_ENV: "dev"
             ECHO_URL: "http://echo:3000"
-          monitoring: false
+          monitoring: true
           resources:
             requests:
               memory: "50Mi"
@@ -173,4 +173,4 @@ spec:
               cpu: "20m"
           replicas: 1
         - environment: production
-          monitoring: true
+          monitoring: false
