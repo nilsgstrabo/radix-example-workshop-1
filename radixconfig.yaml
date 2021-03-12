@@ -25,45 +25,11 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "dev"
-          monitoring: true
-          resources:
-            requests:
-              memory: "200Mi"
-              cpu: "20m"
-            limits:
-              memory: "750Mi"
-              cpu: "50m"
-          # volumeMounts:
-          #   - type: blob
-          #     name: computedata
-          #     container: dev_compute_container
-          #     path: /dev_compute
         - environment: production
           variables:
-            PORT: 3002
+            PORT: 3001
             NODE_ENV: "production"
             PROD_VAR: "only_in_prod"
-          monitoring: false
-          resources:
-            requests:
-              memory: "200Mi"
-              cpu: "20m"
-            limits:
-              memory: "750Mi"
-              cpu: "50m"
-          # volumeMounts:
-          #   - type: blob
-          #     name: computedata
-          #     container: prod_compute_container
-          #     path: /prod_compute
-    # - name: compute2
-    #   src: ./compute
-    #   schedulerPort: 8889
-    #   ports:
-    #    - name: http
-    #      port: 3001
-    #   variables:
-    #     COMPUTE_SOURCE: somewhere_else
   components:
     - name: echo
       src: ./echo
