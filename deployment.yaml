@@ -1,22 +1,43 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testdeploy
-  namespace: echo-nils-dev
+  name: job-scheduler-deplop
+  namespace: test
   labels:
-    app: testdeploy
+    app: job-scheduler-deplop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: testdeploy
+      app: job-scheduler-deplop
   template:
     metadata:
       labels:
-        app: testdeploy
+        app: job-scheduler-deplop
     spec:
       containers:
-      - name: testdeploy
-        image: nilsgustavstrabo/compute:latest
+      - name: job-scheduler-deplop
+        image: radixdev.azurecr.io/radix-job-scheduler:72391-job-scheduler-latest
         ports:
-        - containerPort: 8080
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        env:
+        - name: RD_NAME
+          value: dev-0yahy-1tmn77j7
+        - name: APP_NS
+          value: test
+        - name: RD_COMPONENT
+          value: compute
+        - name: KUBERNETES_PORT_443_TCP_ADDR
+          value: weekly-8-clusters-16ede4-8a1138ae.hcp.northeurope.azmk8s.io
+        - name: KUBERNETES_PORT
+          value: tcp://weekly-8-clusters-16ede4-8a1138ae.hcp.northeurope.azmk8s.io:443
+        - name: KUBERNETES_PORT_443_TCP
+          value: tcp://weekly-8-clusters-16ede4-8a1138ae.hcp.northeurope.azmk8s.io:443
+        - name: KUBERNETES_SERVICE_HOST
+          value: weekly-8-clusters-16ede4-8a1138ae.hcp.northeurope.azmk8s.io
+        - name: DEBUG_LEVEL
+          value: "true"
+        - name: USE_SWAGGER
+          value: "true"

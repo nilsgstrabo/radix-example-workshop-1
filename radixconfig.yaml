@@ -3,16 +3,6 @@ kind: RadixApplication
 metadata:
   name: echo-nils
 spec:
-  dnsAppAlias:
-    environment: production
-    component: www
-  privateImageHubs:
-    privaterepodeleteme.azurecr.io:
-      username: 23452345-3d71-44a7-8476-50e8b281abbc
-      email: radix@statoilsrm.onmicrosoft.com
-    privaterepodeleteme2.azurecr.io:
-      username: 23423424-3d71-44a7-8476-50e8b281abb2
-      email: radix@statoilsrm.onmicrosoft.com
   environments:
     - name: dev
       build:
@@ -74,19 +64,6 @@ spec:
     #      port: 3001
     #   variables:
     #     COMPUTE_SOURCE: somewhere_else
-  # cronjobs:
-  #   - name: etl
-  #     src: ./etl
-      # schedule: * 0 0 0 0
-      # ports:
-      #   - name: http
-      #     port: 3000
-      # environmentConfig:
-      #   - environment: dev
-      #     schedule: * */2 0 0 0
-      # secrets:
-      #   - SECRET1
-      #   - SECRET2
   components:
     - name: echo
       src: ./echo
@@ -105,11 +82,6 @@ spec:
             PORT: 3001
             NODE_ENV: "dev"
           monitoring: false
-          # volumeMounts:
-          #   - type: blob
-          #     name: blobvol
-          #     container: devcontainer
-          #     path: /devdir
           replicas: 1
           resources:
             requests:
@@ -122,11 +94,6 @@ spec:
           monitoring: true
           variables:
             PORT: 3001
-          # volumeMounts:
-          #   - type: blob
-          #     name: blobvol
-          #     container: prodcontainer
-          #     path: /proddir
           resources:
             requests:
               memory: "155Mi"
@@ -138,25 +105,25 @@ spec:
       src: ./www
       ports:
        - name: http
-         port: 3001
+         port: 3002
       publicPort: http
       environmentConfig:
         - environment: dev
           variables:
-            PORT: 3001
+            PORT: 3002
             NODE_ENV: "dev"
             ECHO_URL: "http://echo:3001"
           monitoring: true
           resources:
             requests:
-              memory: "50Mi"
+              memory: "150Mi"
               cpu: "10m"
             limits:
-              memory: "54Mi"
+              memory: "150Mi"
               cpu: "20m"
           replicas: 1
         - environment: production
           monitoring: false
           variables:
-            PORT: 3001
+            PORT: 3002
             ECHO_URL: "http://echo:3001"

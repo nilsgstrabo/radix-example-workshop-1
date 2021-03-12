@@ -1,32 +1,63 @@
----
-apiVersion: batch/v1
-kind: Job
+# ---
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: computejob
+#   namespace: echo-nils-production
+# spec:
+#   template:
+#     metadata:
+#       namespace: echo-nils-production
+#       labels:
+#         app: computejobtest
+#     spec:
+#       restartPolicy: Never
+#       containers:
+#         - name: nginx-unprivileged5
+#           image: nilsgustavstrabo/compute:latest
+#           ports:
+#             - containerPort: 8080
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: computejob
+#   namespace: echo-nils-production
+# spec:
+#   selector:
+#     app: computejobtest
+#   ports:
+#     - protocol: TCP
+#       port: 8080
+#       targetPort: 8080
+
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: computejob
-  namespace: echo-nils-production
+  name: test-app
+  namespace: test
+  labels:
+    app: test-app
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
   template:
     metadata:
-      namespace: echo-nils-production
       labels:
-        app: computejobtest
+        app: test-app
     spec:
-      restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
       containers:
-        - name: nginx-unprivileged5
-          image: nilsgustavstrabo/compute:latest
+        - name: test-app
+          image: nginxinc/nginx-unprivileged:latest
           ports:
-            - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: computejob
-  namespace: echo-nils-production
-spec:
-  selector:
-    app: computejobtest
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          securityContext:
+            privileged: false
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: false
