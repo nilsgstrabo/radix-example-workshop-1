@@ -20,16 +20,28 @@ spec:
         path: /path/to/payload2
       variables:
         COMPUTE_SOURCE: somewhere
+      secrets:
+        - SECRET1
       environmentConfig:
         - environment: dev
           variables:
             PORT: 3001
             NODE_ENV: "dev"
+          volumeMounts:
+            - type: blob
+              name: volume-name
+              container: container-dev
+              path: /path/in/container/to/mount/to
         - environment: production
           variables:
             PORT: 3001
             NODE_ENV: "production"
             PROD_VAR: "only_in_prod"
+          volumeMounts:
+            - type: blob
+              name: volume-name
+              container: container-prod
+              path: /path/in/container/to/mount/to
   components:
     - name: echo
       src: ./echo
