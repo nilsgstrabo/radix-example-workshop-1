@@ -56,6 +56,7 @@ spec:
         VAR2: var2
       environmentConfig:
         - environment: dev
+          runAsNonRoot: true
           variables:
             PORT: 3001
             NODE_ENV: "dev"
