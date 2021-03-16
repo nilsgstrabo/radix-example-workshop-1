@@ -21,7 +21,7 @@ spec:
       variables:
         COMPUTE_SOURCE: somewhere
       secrets:
-        - SECRET1
+        - COMPUTESECRET
       environmentConfig:
         - environment: dev
           variables:
@@ -86,6 +86,8 @@ spec:
        - name: http
          port: 3002
       publicPort: http
+      secrets:
+        - WWWSECRET
       environmentConfig:
         - environment: dev
           variables:
