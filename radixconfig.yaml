@@ -56,7 +56,7 @@ spec:
         VAR2: var2
       environmentConfig:
         - environment: dev
-          runAsNonRoot: false
+          runAsNonRoot: true
           variables:
             PORT: 3001
             NODE_ENV: "dev"
@@ -71,6 +71,7 @@ spec:
               cpu: "33m"
         - environment: production
           monitoring: true
+          runAsNonRoot: true
           variables:
             PORT: 3001
           resources:
@@ -105,6 +106,7 @@ spec:
               cpu: "20m"
           replicas: 1
         - environment: production
+          runAsNonRoot: true  
           monitoring: false
           variables:
             PORT: 3002
