@@ -22,6 +22,7 @@ spec:
         COMPUTE_SOURCE: somewhere
       secrets:
         - COMPUTESECRET
+        - COMPUTESECRET2
       environmentConfig:
         - environment: dev
           variables:
