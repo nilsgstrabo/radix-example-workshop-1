@@ -34,11 +34,11 @@ RUN npm audit
 # Release image
 #
 FROM base as release
-RUN addgroup -S -g 1001 www
-RUN adduser -S -u 1001 -G www www
+#RUN addgroup -S -g 1001 www
+#RUN adduser -S -u 1001 -G www www
 WORKDIR /usr/src/app
 COPY --from=dependencies /usr/src/app/node_modules_production ./node_modules
 EXPOSE 3001
 ENV NODE_ENV=production
-USER 1001:1001
+USER 1000
 ENTRYPOINT [ "npm", "start"]
