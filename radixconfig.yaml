@@ -90,6 +90,7 @@ spec:
         - WWWSECRET
       environmentConfig:
         - environment: dev
+          runAsNonRoot: true
           variables:
             PORT: 3002
             NODE_ENV: "dev"
