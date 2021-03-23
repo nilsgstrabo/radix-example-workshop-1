@@ -112,3 +112,11 @@ spec:
           variables:
             PORT: 3002
             ECHO_URL: "http://echo:3001"
+    - name: nginx
+      image: bitnami/redis:latest
+      alwaysPullImageOnDeploy: true
+      ports:
+        - name: redis
+          port: 6379
+      variables:
+        ALLOW_EMPTY_PASSWORD: "yes"          
