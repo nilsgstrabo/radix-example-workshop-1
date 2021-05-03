@@ -44,6 +44,8 @@ spec:
               container: container-prod
               path: /path/in/container/to/mount/to
   components:
+    - name: broken
+      image: nilsgustavstrabo/gone:xyz
     - name: echo
       src: ./echo
       ports:
