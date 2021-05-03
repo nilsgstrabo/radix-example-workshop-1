@@ -44,14 +44,14 @@ describe('Testing index router', function () {
                 done();
             });
     });
-    it('GET /nowhere should return 404', function (done) {
-        request(app)
-            .get('/nowhere')
-            .expect(404)
-            .end(function (err) {
-                if (err)
-                    return done(err);
-                done();
-            });
-    });
+    // it('GET /nowhere should return 404', function (done) {
+    //     request(app)
+    //         .get('/nowhere')
+    //         .expect(404)
+    //         .end(function (err) {
+    //             if (err)
+    //                 return done(err);
+    //             done();
+    //         });
+    // });
 });
