@@ -26,7 +26,7 @@ COPY test test
 RUN ["npm","test"]
 COPY .eslintrc.json .eslintignore ./
 RUN npm run lint
-RUN npm audit
+#RUN npm audit
 
 #
 # Release image
