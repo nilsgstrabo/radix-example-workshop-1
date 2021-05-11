@@ -67,6 +67,11 @@ spec:
             PORT: 3001
             NODE_ENV: "dev"
           monitoring: false
+          volumeMounts:
+            - type: blob
+              name: volume-name
+              container: container-name
+              path: /path/in/container/to/mount/to
           replicas: 1
           resources:
             requests:
