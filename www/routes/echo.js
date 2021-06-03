@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 var createError = require('http-errors');
 
-const echoUrl = (process.env.ECHO_URL);
+const echoUrl = (process.env.ECHOURL);
 
 var echoOptions = {
     url: echoUrl,

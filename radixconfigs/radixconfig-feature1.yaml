@@ -57,7 +57,7 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "production"
-            ECHO_URL: "http://echo:3000"
+            ECHOURL: "http://echo:3000"
           monitoring: false
           resources:
             requests:
@@ -71,7 +71,7 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "test"
-            ECHO_URL: "http://echo:3000"
+            ECHOURL: "http://echo:3000"
           monitoring: false
           resources:
             requests:

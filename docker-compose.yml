@@ -5,7 +5,7 @@ services:
     ports:
      - "3001:3001"
     environment:
-     - ECHO_URL=http://echo:3000
+     - ECHOURL=http://echo:3000
   echo:
     build: ./echo
     ports:

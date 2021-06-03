@@ -89,7 +89,7 @@ spec:
          port: 3002
       publicPort: http
       variables:
-        ECHO_URL: "http://echo:3001"
+        ECHOURL: "http://echo:3001"
       secrets:
         - WWWSECRET
       environmentConfig:
