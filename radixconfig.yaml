@@ -44,11 +44,6 @@ spec:
               container: container-prod
               path: /path/in/container/to/mount/to
   components:
-    - name: broken
-      image: nilsgustavstrabo/gone:xyz
-      ports:
-      - name: http
-        port: 3001
     - name: echo
       src: ./echo
       ports:
@@ -67,11 +62,6 @@ spec:
             PORT: 3001
             NODE_ENV: "dev"
           monitoring: false
-          volumeMounts:
-            - type: blob
-              name: volume-name
-              container: container-name
-              path: /path/in/container/to/mount/to
           replicas: 1
           resources:
             requests:
@@ -98,6 +88,8 @@ spec:
        - name: http
          port: 3002
       publicPort: http
+      variables:
+        ECHO_URL: "http://echo:3001"
       secrets:
         - WWWSECRET
       environmentConfig:
@@ -106,7 +98,6 @@ spec:
           variables:
             PORT: 3002
             NODE_ENV: "dev"
-            ECHO_URL: "http://echo:3001"
           monitoring: true
           resources:
             requests:
@@ -121,7 +112,6 @@ spec:
           monitoring: false
           variables:
             PORT: 3002
-            ECHO_URL: "http://echo:3001"
     - name: nginx
       image: bitnami/redis:latest
       alwaysPullImageOnDeploy: true

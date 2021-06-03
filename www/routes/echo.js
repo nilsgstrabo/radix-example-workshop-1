@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 var createError = require('http-errors');
 
-const echoUrl = (process.env.ECHO_URL || 'http://localhost:3000');
+const echoUrl = (process.env.ECHO_URL);
 
 var echoOptions = {
     url: echoUrl,
