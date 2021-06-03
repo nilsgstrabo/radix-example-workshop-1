@@ -8,41 +8,6 @@ spec:
       build:
         from: config
     - name: production
-  jobs:
-    - name: compute
-      src: ./compute
-      dockerfileName: Dockerfile
-      ports:
-       - name: http
-         port: 3001
-      schedulerPort: 8888
-      payload:
-        path: /path/to/payload2
-      variables:
-        COMPUTE_SOURCE: somewhere
-      secrets:
-        - COMPUTESECRET
-        - COMPUTESECRET2
-      environmentConfig:
-        - environment: dev
-          variables:
-            PORT: 3001
-            NODE_ENV: "dev"
-          volumeMounts:
-            - type: blob
-              name: volume-name
-              container: container-dev
-              path: /path/in/container/to/mount/to
-        - environment: production
-          variables:
-            PORT: 3001
-            NODE_ENV: "production"
-            PROD_VAR: "only_in_prod"
-          volumeMounts:
-            - type: blob
-              name: volume-name
-              container: container-prod
-              path: /path/in/container/to/mount/to
   components:
     - name: echo
       src: ./echo
@@ -112,6 +77,7 @@ spec:
           monitoring: false
           variables:
             PORT: 3002
+            ECHO_URL: "http://echo:3001"
     - name: nginx
       image: bitnami/redis:latest
       alwaysPullImageOnDeploy: true
