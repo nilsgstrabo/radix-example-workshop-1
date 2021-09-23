@@ -63,7 +63,6 @@ spec:
           variables:
             PORT: 3002
             NODE_ENV: "dev"
-          monitoring: true
           resources:
             requests:
               memory: "150Mi"
@@ -74,7 +73,6 @@ spec:
           replicas: 1
         - environment: production
           runAsNonRoot: true  
-          monitoring: false
           variables:
             PORT: 3002
             ECHO_URL: "http://echo:3001"
