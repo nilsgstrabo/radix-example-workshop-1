@@ -4,7 +4,7 @@ metadata:
   name: echo-nils
 spec:
   environments:
-    - name: dev
+    - name: dev_x
       build:
         from: config
     - name: production
@@ -48,7 +48,7 @@ spec:
               memory: "166Mi"
               cpu: "133m"
     - name: www
-      src: www2
+      src: www
       ports:
        - name: http
          port: 3002
@@ -56,7 +56,7 @@ spec:
       variables:
         ECHOURL: "http://echo:3001"
       secrets:
-        - WWWSECRET
+        - ASECRET
       environmentConfig:
         - environment: dev
           runAsNonRoot: true
