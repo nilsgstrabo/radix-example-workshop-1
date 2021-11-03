@@ -4,7 +4,7 @@ metadata:
   name: echo-nils
 spec:
   environments:
-    - name: dev_x
+    - name: dev
       build:
         from: config
     - name: production
