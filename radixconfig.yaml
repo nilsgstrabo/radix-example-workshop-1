@@ -10,7 +10,6 @@ spec:
     - name: development
       build:
         from: development
-    - name: err_env
   components:
     - name: echo
       src: ./echo
