@@ -8,7 +8,6 @@ spec:
       build:
         from: config
     - name: production
-    - name: invalid_name
   components:
     - name: echo
       src: echo
